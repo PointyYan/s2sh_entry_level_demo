@@ -1,0 +1,6 @@
+com\s2shdemo\service\impl\UserServiceImpl.class
+com\s2shdemo\action\UserAction.class
+com\s2shdemo\dao\impl\UserDAOImpl.class
+com\s2shdemo\entity\User.class
+com\s2shdemo\dao\UserDAO.class
+com\s2shdemo\service\UserService.class
