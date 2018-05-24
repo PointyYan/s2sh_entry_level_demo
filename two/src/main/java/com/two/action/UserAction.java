@@ -20,6 +20,7 @@ public class UserAction extends ActionSupport {
     @Autowired
     private UserService userService;
 
+//    @Autowired
     private User user;
 
     public void setUserService(UserService userService) {
@@ -36,6 +37,9 @@ public class UserAction extends ActionSupport {
 
     public String login() {
         User u = userService.findByName(user.getUsername(), user.getPassword());
+        String a = user.getUsername();
+        String b = user.getPassword();
+        System.out.println("action|"+a+"|"+b+"|"+u);
         if (u != null) {
             return SUCCESS;
         }else {

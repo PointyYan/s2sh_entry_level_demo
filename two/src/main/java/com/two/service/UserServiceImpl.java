@@ -36,8 +36,12 @@ public class UserServiceImpl implements UserService {
     }
 
     public User findByName(String name, String password) {
-        userDao.findByName(name, password);
-        return null;
+        User u = userDao.findByName(name, password);
+//        userDao.findByName(name, password);
+//        String a = user.getUsername();
+//        String b = user.getPassword();
+        System.out.println("service|"+name+"|"+password+"|"+u);
+        return u;
     }
 
     public User findById(long id) {

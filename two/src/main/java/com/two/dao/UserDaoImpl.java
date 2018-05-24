@@ -5,7 +5,9 @@ import org.hibernate.Query;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
+import javax.annotation.Resource;
 import java.util.List;
 
 /**
@@ -14,11 +16,15 @@ import java.util.List;
  * @Date: Created in 9:44 2018/5/23
  * @Modified By:
  */
+@Transactional(rollbackFor = Exception.class)
 @Repository("userDao")
 public class UserDaoImpl implements UserDao{
 
-    @Autowired
+    @Resource(name="sessionFactory")
     private SessionFactory sessionFactory;
+
+    public UserDaoImpl(SessionFactory sessionFactory) {
+    }
 
     public void add(User user) {
         sessionFactory.getCurrentSession().save(user);
@@ -42,6 +48,11 @@ public class UserDaoImpl implements UserDao{
             query.setParameter(0, name);
             query.setParameter(1, password);
             user = (User) query.uniqueResult();
+
+            String a = user.getUsername();
+            String b = user.getPassword();
+            System.out.println("dao"+a+"|"+b+"|"+name+"|"+password+"|"+user.getUsername()+"|"+user);
+
         }catch (Exception ignored){
 
         }

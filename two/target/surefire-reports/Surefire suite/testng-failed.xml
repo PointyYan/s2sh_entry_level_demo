@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite thread-count="10" verbose="0" name="Failed suite [Surefire suite]" junit="true" parallel="methods">
+  <test name="Surefire test(failed)" junit="true" parallel="methods">
+    <classes>
+      <class name="com.two.dao.DaoTest">
+        <methods>
+          <include name="findByNameTest"/>
+        </methods>
+      </class> <!-- com.two.dao.DaoTest -->
+      <class name="com.two.service.ServiceTest">
+        <methods>
+          <include name="Test"/>
+        </methods>
+      </class> <!-- com.two.service.ServiceTest -->
+    </classes>
+  </test> <!-- Surefire test(failed) -->
+</suite> <!-- Failed suite [Surefire suite] -->
